@@ -1,0 +1,24 @@
+---
+title: "Example1"
+author: "Abhijith Upadhya"
+date: "5/11/2020"
+output: html_document
+---
+
+# Load and Graph Data
+Here we load the entire data and then filtered it to show only for the year 1992:
+
+```{r message=FALSE, warning=FALSE}
+library(tidyverse)
+
+gapminder <- read.csv("data/gapminder.csv")
+gapminder_1992 <- gapminder %>% filter(year == 1992)
+```
+
+Here we plotted the graph from the gapminder for the year 1992:
+
+```{r}
+ggplot(gapminder_1992, mapping = aes(x = gdpPercap, y = lifeExp, color = continent)) + 
+  geom_point()
+```
+
